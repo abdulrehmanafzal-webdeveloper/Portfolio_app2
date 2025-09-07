@@ -97,6 +97,7 @@ const Projects = () => {
                     <div className="flex flex-wrap gap-3">
                       <a
                         href={project.liveDemo}
+                        target="_blank"
                         className="btn-secondary group text-sm flex items-center justify-center gap-2"
                       >
                         <Play className="w-4 h-4 group-hover:scale-110 transition-transform" />
@@ -104,6 +105,7 @@ const Projects = () => {
                       </a>
                       <a
                         href={project.github}
+                        target="_blank"
                         className="btn-secondary group text-sm flex items-center justify-center gap-2"
                       >
                         <Github className="w-4 h-4 group-hover:rotate-12 transition-transform" />
@@ -156,6 +158,7 @@ const Projects = () => {
                     <div className="flex gap-2">
                       <a
                         href={project.liveDemo}
+                        target="_blank"
                         className="flex-1 btn-secondary group text-xs flex items-center justify-center gap-1"
                       >
                         <Play className="w-3 h-3 group-hover:scale-110 transition-transform" />
@@ -163,6 +166,7 @@ const Projects = () => {
                       </a>
                       <a
                         href={project.github}
+                        target="_blank"
                         className="flex-1 btn-secondary group text-xs flex items-center justify-center gap-1"
                       >
                         <Github className="w-3 h-3 group-hover:rotate-12 transition-transform" />
