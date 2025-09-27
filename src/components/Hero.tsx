@@ -14,7 +14,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden py-12 sm:py-0">
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden py-24">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-float" />
@@ -31,14 +31,7 @@ const Hero = () => {
             transition={{ duration: 0.8 }}
             className="space-y-4 md:space-y-6 w-full text-center md:text-left"
           >
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-              className="text-base md:text-lg text-muted-foreground"
-            >
-              Hello, I'm
-            </motion.p>
+            
 
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
