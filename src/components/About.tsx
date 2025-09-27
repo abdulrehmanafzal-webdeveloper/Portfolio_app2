@@ -1,206 +1,205 @@
-import React from "react";
-import { motion, easeOut } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+import { motion } from 'framer-motion';
+import { Code, Users, Lightbulb, Target } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
-const About: React.FC = () => {
-  // Create refs for checking if elements are in viewport
-  const [sectionRef, sectionInView] = useInView({ 
-    triggerOnce: false,
-    threshold: 0.1
-  });
+const About = () => {
+  const values = [
+    {
+      icon: Code,
+      title: 'Clean Code',
+      description: 'I believe in writing clean, maintainable, and well-documented code that stands the test of time.',
+    },
+    {
+      icon: Users,
+      title: 'Collaboration',
+      description: 'Working effectively with teams and learning from senior developers to deliver exceptional results.',
+    },
+    {
+      icon: Lightbulb,
+      title: 'Innovation',
+      description: 'Constantly exploring new technologies and methodologies to solve problems creatively.',
+    },
+    {
+      icon: Target,
+      title: 'Goal-Oriented',
+      description: 'Focused on delivering high-quality solutions that meet user needs and business objectives.',
+    },
+  ];
 
-  const headingVariants = {
-    hidden: { opacity: 0, y: -20 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: { duration: 0.6, ease: easeOut }
-    }
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: (custom: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: { 
-        duration: 0.5,
-        delay: custom * 0.1,
-        ease: easeOut
-      }
-    })
-  };
-
-  const statsVariants = {
-    hidden: { scale: 0.8, opacity: 0 },
-    visible: (custom: number) => ({
-      scale: 1,
-      opacity: 1,
-      transition: { 
-        duration: 0.4,
-        delay: 0.2 + custom * 0.1,
-        type: "spring" as const, 
-        stiffness: 100 
-      }
-    })
-  };
+  const stats = [
+    { number: '5+', label: 'Projects Completed' },
+    { number: '2+', label: 'Years Learning' },
+    { number: '20+', label: 'Technologies' },
+    { number: '100%', label: 'Dedication' },
+  ];
 
   return (
-    <motion.section 
-      id="about" 
-      className="py-20 bg-muted/30"
-      ref={sectionRef}
-      initial="hidden"
-      animate={sectionInView ? "visible" : "hidden"}
-      variants={{
-        hidden: {},
-        visible: {}
-      }}
-    >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div 
+    <section id="about" className="py-20 bg-gradient-to-br from-background to-card/30">
+      <div className="section-container">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
           className="text-center mb-16"
-          variants={headingVariants}
         >
-          <h2 className="section-heading mb-4">About Me</h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            A passionate software engineering student with a strong foundation in web development 
-            and a keen interest in creating innovative solutions.
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            About <span className="gradient-text">Me</span>
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            Passionate software engineer with a drive to create innovative solutions
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
-            <motion.div 
-              className="project-card hover:shadow-lg transition-shadow duration-300"
-              variants={cardVariants}
-              custom={0}
-              whileHover={{ scale: 1.02 }}
-              transition={{ type: "tween", duration: 0.2 }}
-            >
-              <h3 className="text-xl font-semibold text-foreground mb-3">My Journey</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                I'm currently pursuing a BS in Software Engineering at National Textile University (NTU), 
-                Faisalabad, Pakistan. My passion for web development began with curiosity about how 
-                applications work, which led me to master the MERN stack and Python.
-              </p>
-            </motion.div>
-
-            <motion.div 
-              className="project-card hover:shadow-lg transition-shadow duration-300"
-              variants={cardVariants}
-              custom={1}
-              whileHover={{ scale: 1.02 }}
-              transition={{ type: "tween", duration: 0.2 }}
-            >
-              <h3 className="text-xl font-semibold text-foreground mb-3">What Drives Me</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                I'm passionate about building scalable applications and exploring the intersection 
-                of web development and AI/ML. I believe in writing clean, efficient code and 
-                creating user experiences that make a difference.
-              </p>
-            </motion.div>
-
-            <motion.div 
-              className="project-card hover:shadow-lg transition-shadow duration-300"
-              variants={cardVariants}
-              custom={2}
-              whileHover={{ scale: 1.02 }}
-              transition={{ type: "tween", duration: 0.2 }}
-            >
-              <h3 className="text-xl font-semibold text-foreground mb-3">Looking Forward</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                I'm actively seeking opportunities to apply my skills in real-world projects, 
-                contribute to open-source initiatives, and continue learning from experienced 
-                developers in the industry.
-              </p>
-            </motion.div>
-          </div>
-
-          <div className="grid grid-cols-2 gap-6">
-            <motion.div 
-              className="project-card text-center hover:shadow-lg transition-shadow duration-300"
-              variants={statsVariants}
-              custom={0}
-              whileHover={{ 
-                scale: 1.05,
-                boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)"
-              }}
-            >
-              <motion.div 
-                className="text-3xl font-bold text-primary mb-2"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.5 }}
-              >
-                5+
-              </motion.div>
-              <div className="text-sm text-muted-foreground">Projects Completed</div>
-            </motion.div>
+        <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
+          {/* About Text */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="space-y-6"
+          >
+            <h3 className="text-3xl font-bold text-foreground mb-6">
+              A Bit About Me
+            </h3>
             
-            <motion.div 
-              className="project-card text-center hover:shadow-lg transition-shadow duration-300"
-              variants={statsVariants}
-              custom={1}
-              whileHover={{ 
-                scale: 1.05,
-                boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)"
-              }}
-            >
-              <motion.div 
-                className="text-3xl font-bold text-accent mb-2"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.5 }}
+            <div className="space-y-4 text-muted-foreground leading-relaxed">
+              <p>
+                I am Abdul Rehman Afzal, a passionate software engineer and full-stack developer 
+                currently pursuing my BS in Software Engineering at National Textile University (NTU), 
+                Faisalabad, Pakistan. My journey in technology began with a curiosity about how 
+                digital solutions can solve real-world problems.
+              </p>
+              
+              <p>
+                With expertise spanning across modern web technologies including Python, FastAPI, 
+                MERN stack, and Next.js, I have successfully delivered 15+ projects ranging from 
+                e-commerce platforms to AI-integrated APIs. My experience includes collaborating 
+                with senior developers and contributing to dynamic applications that serve real users.
+              </p>
+              
+              <p>
+                What drives me is the opportunity to create scalable, efficient solutions while 
+                continuously learning and adapting to new technologies. I'm particularly interested 
+                in AI/ML integration, cloud services, and building applications that make a 
+                meaningful impact.
+              </p>
+              
+              <p>
+                I am committed to writing clean, maintainable code and believe in the power of 
+                collaboration to achieve exceptional results. Currently, I'm exploring opportunities 
+                to work with innovative teams and contribute to projects that push the boundaries 
+                of what's possible with technology.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Stats Grid */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="grid grid-cols-2 gap-6"
+          >
+            {stats.map((stat, index) => (
+              <motion.div
+                key={stat.label}
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className="text-center"
               >
-                10+
+                <Card className="bg-gradient-card border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-glow">
+                  <CardContent className="p-6">
+                    <div className="text-4xl font-bold gradient-text mb-2">
+                      {stat.number}
+                    </div>
+                    <div className="text-sm text-muted-foreground font-medium">
+                      {stat.label}
+                    </div>
+                  </CardContent>
+                </Card>
               </motion.div>
-              <div className="text-sm text-muted-foreground">Technologies</div>
-            </motion.div>
-            
-            <motion.div 
-              className="project-card text-center hover:shadow-lg transition-shadow duration-300"
-              variants={statsVariants}
-              custom={2}
-              whileHover={{ 
-                scale: 1.05,
-                boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)"
-              }}
-            >
-              <motion.div 
-                className="text-3xl font-bold text-primary mb-2"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5, duration: 0.5 }}
-              >
-                2024
-              </motion.div>
-              <div className="text-sm text-muted-foreground">Started Journey</div>
-            </motion.div>
-            
-            <motion.div 
-              className="project-card text-center hover:shadow-lg transition-shadow duration-300"
-              variants={statsVariants}
-              custom={3}
-              whileHover={{ 
-                scale: 1.05,
-                boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)"
-              }}
-            >
-              <motion.div 
-                className="text-3xl font-bold text-accent mb-2"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6, duration: 0.5 }}
-              >
-                100%
-              </motion.div>
-              <div className="text-sm text-muted-foreground">Commitment</div>
-            </motion.div>
-          </div>
+            ))}
+          </motion.div>
         </div>
+
+        {/* Values Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="space-y-8"
+        >
+          <h3 className="text-3xl font-bold text-center text-foreground">
+            My <span className="gradient-text">Values</span>
+          </h3>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {values.map((value, index) => {
+              const IconComponent = value.icon;
+              return (
+                <motion.div
+                  key={value.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                >
+                  <Card className="h-full bg-gradient-card border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-primary text-center">
+                    <CardHeader className="pb-4">
+                      <div className="mx-auto p-3 bg-primary/20 rounded-lg w-fit mb-4">
+                        <IconComponent className="w-8 h-8 text-primary" />
+                      </div>
+                      <CardTitle className="text-xl font-bold text-foreground">
+                        {value.title}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="pt-0">
+                      <p className="text-muted-foreground leading-relaxed">
+                        {value.description}
+                      </p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              );
+            })}
+          </div>
+        </motion.div>
+
+        {/* Call to Action */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          viewport={{ once: true }}
+          className="text-center mt-16"
+        >
+          <Card className="bg-gradient-card border-primary/20 max-w-3xl mx-auto">
+            <CardContent className="p-8">
+              <h3 className="text-2xl font-bold text-foreground mb-4">
+                Ready to Work Together?
+              </h3>
+              <p className="text-muted-foreground mb-6 leading-relaxed">
+                I'm always excited to take on new challenges and collaborate on innovative projects. 
+                Let's build something amazing together!
+              </p>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                className="bg-gradient-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold glow-button transition-all duration-300"
+              >
+                Get In Touch
+              </motion.button>
+            </CardContent>
+          </Card>
+        </motion.div>
       </div>
-    </motion.section>
+    </section>
   );
 };
 

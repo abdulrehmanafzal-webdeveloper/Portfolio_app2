@@ -1,166 +1,209 @@
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
 import {
-  Code2,
-  Database,
-  Palette,
-  Wrench,
-  Cpu,
-} from "lucide-react";
-import {
-  FaReact,
-  FaNodeJs,
-  FaHtml5,
-  FaCss3Alt,
-  FaPython,
-  FaGithub,
-  FaJsSquare,
-} from "react-icons/fa";
-import { VscChromeClose } from 'react-icons/vsc';
-import {
-  SiMongodb,
-  SiExpress,
-  SiMysql,
+  SiJavascript,
   SiTypescript,
-  SiBootstrap,
+  SiPython,
+  SiCplusplus,
+  SiHtml5,
+  SiCss3,
+  SiReact,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiExpress,
+  SiMongodb,
+  SiMysql,
   SiTailwindcss,
+  SiBootstrap,
+  SiFastapi,
+  SiGit,
+  SiGithub,
   SiPostman,
   SiNetlify,
-  SiVercel
-} from "react-icons/si";
-import  RailwayIcon from "../assets/RailwayIcon.png";
+  SiVercel,
+} from 'react-icons/si';
+
+import { Code } from 'lucide-react';
+
 const Skills = () => {
   const skillCategories = [
     {
-      title: "Languages & Frameworks",
-      icon: <Code2 className="w-6 h-6 text-primary" />,
+      title: 'Languages & Core',
       skills: [
-        { name: "JavaScript", icon: <FaJsSquare className="text-yellow-400 w-5 h-5" /> },
-        { name: "TypeScript", icon: <SiTypescript className="text-blue-500 w-5 h-5" /> },
-        { name: "Python", icon: <FaPython className="text-yellow-500 w-5 h-5" /> },
-        { name: "HTML5", icon: <FaHtml5 className="text-orange-500 w-5 h-5" /> },
-        { name: "CSS3", icon: <FaCss3Alt className="text-blue-600 w-5 h-5" /> },
-        { name: "React", icon: <FaReact className="text-cyan-400 w-5 h-5" /> },
-        { name: "Node.js", icon: <FaNodeJs className="text-green-600 w-5 h-5" /> },
-        { name: "Express.js", icon: <SiExpress className="text-gray-700 w-5 h-5" /> },
+        { name: 'JavaScript', icon: SiJavascript, color: '#F7DF1E' },
+        { name: 'TypeScript', icon: SiTypescript, color: '#3178C6' },
+        { name: 'Python', icon: SiPython, color: '#3776AB' },
+        { name: 'C#', icon: SiCplusplus, color: '#239120' },
+        { name: 'HTML5', icon: SiHtml5, color: '#E34F26' },
+        { name: 'CSS3', icon: SiCss3, color: '#1572B6' },
       ],
     },
     {
-      title: "Databases & Storage",
-      icon: <Database className="w-6 h-6 text-primary" />,
+      title: 'Frontend Frameworks',
       skills: [
-        { name: "MongoDB", icon: <SiMongodb className="text-green-600 w-5 h-5" /> },
-        { name: "MySQL", icon: <SiMysql className="text-blue-500 w-5 h-5" /> },
+        { name: 'React', icon: SiReact, color: '#61DAFB' },
+        { name: 'Next.js', icon: SiNextdotjs, color: '#000000' },
+        { name: 'Tailwind CSS', icon: SiTailwindcss, color: '#06B6D4' },
+        { name: 'Bootstrap', icon: SiBootstrap, color: '#7952B3' },
       ],
     },
     {
-      title: "Styling & UI",
-      icon: <Palette className="w-6 h-6 text-primary" />,
+      title: 'Backend & Databases',
       skills: [
-        { name: "Tailwind CSS", icon: <SiTailwindcss className="text-sky-400 w-5 h-5" /> },
-        { name: "Bootstrap", icon: <SiBootstrap className="text-purple-600 w-5 h-5" /> },
+        { name: 'Node.js', icon: SiNodedotjs, color: '#339933' },
+        { name: 'Express.js', icon: SiExpress, color: '#000000' },
+        { name: 'FastAPI', icon: SiFastapi, color: '#009688' },
+        { name: 'MongoDB', icon: SiMongodb, color: '#47A248' },
+        { name: 'MySQL', icon: SiMysql, color: '#4479A1' },
       ],
     },
     {
-      title: "Tools & Platforms",
-      icon: <Wrench className="w-6 h-6 text-primary" />,
+      title: 'Tools & Platforms',
       skills: [
-        { name: "GitHub", icon: <FaGithub className="text-gray-900 dark:text-white w-5 h-5" /> },
-        { name: "VS Code", icon: <VscChromeClose className="text-blue-500 w-5 h-5" /> },
-        { name: "Postman", icon: <SiPostman className="text-orange-500 w-5 h-5" /> },
-        { name: "Netlify", icon: <SiNetlify className="text-teal-500 w-5 h-5" /> },
-        { name: "Vercel", icon: <SiVercel className="text-black dark:text-white w-5 h-5" /> },
-        { name: "Railway", icon: <img src={RailwayIcon} alt="Railway" className=" w-5 h-5" />  },
+        { name: 'Git', icon: SiGit, color: '#F05032' },
+        { name: 'GitHub', icon: SiGithub, color: '#181717' },
+        { name: 'VS Code', icon: Code, color: '#007ACC' },
+        { name: 'Postman', icon: SiPostman, color: '#FF6C37' },
+        { name: 'Netlify', icon: SiNetlify, color: '#00C7B7' },
+        { name: 'Vercel', icon: SiVercel, color: '#000000' },
       ],
     },
   ];
 
-  // Animation variants
-  const cardVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: (i: number) => ({
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
       opacity: 1,
-      y: 0,
-      transition: { delay: i * 0.2, duration: 0.6 },
-    }),
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
   };
 
-  const badgeVariants = {
+  const categoryVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        staggerChildren: 0.05,
+      },
+    },
+  };
+
+  const skillVariants = {
     hidden: { opacity: 0, scale: 0.8 },
-    visible: (i: number) => ({
+    visible: {
       opacity: 1,
       scale: 1,
-      transition: { delay: i * 0.05, duration: 0.4 },
-    }),
+      transition: {
+        duration: 0.4,
+      },
+    },
   };
 
   return (
-    <section id="skills" className="py-20 bg-muted/30">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Heading */}
-        <div className="text-center mb-16">
-          <h2 className="section-heading mb-4">Skills & Technologies</h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+    <section id="skills" className="py-20 bg-gradient-to-br from-card/30 to-background">
+      <div className="section-container">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            Skills & <span className="gradient-text">Expertise</span>
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Technologies and tools I use to bring ideas to life
           </p>
-        </div>
+        </motion.div>
 
-        {/* Skill Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {skillCategories.map((category, index) => (
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 lg:grid-cols-2 gap-12"
+        >
+          {skillCategories.map((category) => (
             <motion.div
-              key={index}
-              className="project-card p-6"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              custom={index}
-              variants={cardVariants}
+              key={category.title}
+              variants={categoryVariants}
+              className="space-y-6"
             >
-              <div className="flex items-center justify-center mb-4">
-                {category.icon}
-              </div>
-              <h3 className="text-lg font-semibold text-foreground mb-4 text-center">
+              <h3 className="text-2xl font-bold text-center text-foreground">
                 {category.title}
               </h3>
-              <div className="flex flex-wrap gap-2 justify-center">
-                {category.skills.map((skill, skillIndex) => (
-                  <motion.span
-                    key={skillIndex}
-                    className="skill-badge flex items-center gap-2 px-3 py-1"
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    custom={skillIndex}
-                    variants={badgeVariants}
-                  >
-                    {skill.icon}
-                    {skill.name}
-                  </motion.span>
-                ))}
+              
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-6">
+                {category.skills.map((skill) => {
+                  const IconComponent = skill.icon;
+                  return (
+                    <motion.div
+                      key={skill.name}
+                      variants={skillVariants}
+                      whileHover={{ 
+                        scale: 1.05, 
+                        rotateY: 10,
+                        z: 50,
+                      }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                      className="group"
+                    >
+                      <div className="flex flex-col items-center p-6 bg-gradient-card border border-primary/20 rounded-lg hover:border-primary/40 transition-all duration-300 hover:shadow-glow card-hover">
+                        <div 
+                          className="mb-3 p-3 rounded-lg transition-all duration-300 group-hover:scale-110"
+                          style={{ 
+                            backgroundColor: `${skill.color}20`,
+                            border: `1px solid ${skill.color}40`
+                          }}
+                        >
+                          <IconComponent 
+                            className="w-8 h-8 transition-all duration-300" 
+                            style={{ color: skill.color }}
+                          />
+                        </div>
+                        <h4 className="text-sm font-semibold text-center text-foreground group-hover:text-primary transition-colors">
+                          {skill.name}
+                        </h4>
+                      </div>
+                    </motion.div>
+                  );
+                })}
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
 
-        {/* Always Learning Card */}
+        {/* Additional Stats */}
         <motion.div
-          className="mt-16 text-center"
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.5 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: true }}
+          className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16"
         >
-          <div className="project-card inline-block p-6">
-            <Cpu className="w-6 h-6 text-primary mx-auto mb-3" />
-            <h3 className="text-lg font-semibold text-foreground mb-3">
-              Always Learning
-            </h3>
-            <p className="text-muted-foreground">
-              Continuously expanding my skillset with new technologies and best
-              practices. Currently exploring advanced React patterns, serverless
-              architectures, and AI/ML integration.
-            </p>
-          </div>
+          {[
+            { label: 'Projects Completed', value: '5+' },
+            { label: 'Technologies Mastered', value: '20+' },
+            { label: 'Years Learning', value: '2+' },
+            { label: 'APIs Developed', value: '10+' },
+          ].map((stat, index) => (
+            <motion.div
+              key={stat.label}
+              whileHover={{ scale: 1.05 }}
+              className="text-center p-6 bg-gradient-card border border-primary/20 rounded-lg"
+            >
+              <div className="text-3xl font-bold gradient-text mb-2">
+                {stat.value}
+              </div>
+              <div className="text-sm text-muted-foreground">
+                {stat.label}
+              </div>
+            </motion.div>
+          ))}
         </motion.div>
       </div>
     </section>

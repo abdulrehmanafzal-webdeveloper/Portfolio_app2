@@ -1,25 +1,34 @@
-import Navigation from '../components/Navigation';
+import Navbar from '../components/Navigation';
 import Hero from '../components/Hero';
-import About from '../components/About';
-import Education from '../components/Education';
-import Skills from '../components/Skills';
 import Projects from '../components/Projects';
+import Skills from '../components/Skills';
+import Education from '../components/Education';
+import About from '../components/About';
 import Contact from '../components/Contact';
-import Footer from '../components/Footer';
 
-const Index = () => {
+const Portfolio = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <Navigation />
-      <Hero />
-      <About />
-      <Education />
-      <Skills />
-      <Projects />
-      <Contact />
-      <Footer />
+    <div className="relative">
+      <Navbar />
+      <main>
+        <Hero />
+        <Projects />
+        <Skills />
+        <Education />
+        <About />
+        <Contact />
+      </main>
+      
+      {/* Footer */}
+      <footer className="py-8 border-t border-primary/20 bg-card/50">
+        <div className="section-container text-center">
+          <p className="text-muted-foreground">
+            © 2024 Abdul Rehman Afzal. Built with React, TypeScript, and Tailwind CSS.
+          </p>
+        </div>
+      </footer>
     </div>
   );
 };
 
-export default Index;
+export default Portfolio;

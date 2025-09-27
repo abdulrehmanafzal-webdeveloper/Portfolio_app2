@@ -2,114 +2,68 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Portfolio Design System - Dark theme with blue/cyan tech aesthetic */
 
 @layer base {
   :root {
-    /* Professional portfolio color scheme */
-    --background: 222 18% 6%;
-    --foreground: 210 20% 95%;
+    /* Dark Portfolio Theme */
+    --background: 220 25% 8%;
+    --foreground: 210 40% 98%;
 
-    --card: 222 16% 8%;
-    --card-foreground: 210 20% 95%;
+    /* Card & Surface Colors */
+    --card: 220 20% 12%;
+    --card-foreground: 210 40% 98%;
+    --card-secondary: 220 15% 15%;
 
-    --popover: 222 16% 8%;
-    --popover-foreground: 210 20% 95%;
+    --popover: 220 20% 12%;
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 200 100% 60%;
-    --primary-foreground: 222 18% 6%;
-    
-    --primary-glow: 200 100% 70%;
-    --primary-dark: 200 100% 50%;
+    /* Brand Colors - Cyan/Blue Accent */
+    --primary: 195 100% 50%;
+    --primary-foreground: 220 25% 8%;
+    --primary-glow: 195 100% 60%;
+    --primary-dark: 195 100% 35%;
 
-    --secondary: 222 12% 15%;
-    --secondary-foreground: 210 20% 95%;
+    --secondary: 220 15% 20%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 222 12% 12%;
-    --muted-foreground: 215 10% 65%;
+    --muted: 220 15% 18%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 180 100% 60%;
-    --accent-foreground: 222 18% 6%;
+    --accent: 270 60% 55%;
+    --accent-foreground: 210 40% 98%;
+    --accent-glow: 270 60% 70%;
 
-    --destructive: 0 84.2% 60.2%;
+    /* Interactive States */
+    --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 222 12% 18%;
-    --input: 222 12% 15%;
-    --ring: 200 100% 60%;
-
-    /* Portfolio specific colors */
-    --success: 142 76% 36%;
-    --warning: 38 92% 50%;
-    --info: 200 100% 60%;
-    
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
-    --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--muted)));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(222 20% 8%) 50%, hsl(var(--primary) / 0.1) 100%);
-    
-    /* Shadows */
-    --shadow-elegant: 0 10px 30px -10px hsl(var(--primary) / 0.3);
-    --shadow-card: 0 8px 32px -8px hsl(0 0% 0% / 0.3);
-    --shadow-glow: 0 0 40px hsl(var(--primary) / 0.15);
+    --border: 220 15% 25%;
+    --input: 220 15% 18%;
+    --ring: 195 100% 50%;
 
     --radius: 0.75rem;
 
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Portfolio Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(220, 25%, 8%) 0%, hsl(220, 30%, 12%) 50%, hsl(195, 50%, 15%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(220, 20%, 12%) 0%, hsl(220, 15%, 15%) 100%);
+    --gradient-primary: linear-gradient(90deg, hsl(195, 100%, 50%) 0%, hsl(195, 100%, 60%) 100%);
+    --gradient-accent: linear-gradient(90deg, hsl(270, 60%, 55%) 0%, hsl(270, 60%, 70%) 100%);
+    --gradient-border: linear-gradient(90deg, hsl(195, 100%, 50%) 0%, hsl(270, 60%, 55%) 100%);
+    
+    /* Shadows & Effects */
+    --shadow-glow: 0 0 20px hsl(195, 100%, 50% / 0.3);
+    --shadow-card: 0 8px 32px hsl(220, 25%, 5% / 0.6);
+    --shadow-primary: 0 8px 32px hsl(195, 100%, 50% / 0.3);
+    
+    /* Animation Variables */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
-
+  
+  /* Remove dark theme overrides since we're using a consistent dark theme */
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Keep same variables as root for consistency */
   }
 }
 
@@ -120,14 +74,10 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: var(--gradient-hero);
+    min-height: 100vh;
   }
-  
-  /* Smooth scrolling */
-  html {
-    scroll-behavior: smooth;
-  }
-  
+
   /* Custom scrollbar */
   ::-webkit-scrollbar {
     width: 8px;
@@ -138,55 +88,54 @@ All colors MUST be HSL.
   }
   
   ::-webkit-scrollbar-thumb {
-    background: hsl(var(--primary));
+    background: linear-gradient(to bottom, hsl(var(--primary)), hsl(var(--accent)));
     border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, hsl(var(--primary-glow)), hsl(var(--accent-glow)));
   }
 }
 
 @layer components {
-  /* Hero button variant */
-  .btn-hero {
-    @apply bg-gradient-to-r from-primary to-accent text-primary-foreground px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-[var(--shadow-elegant)] active:scale-95;
+  /* Portfolio-specific component styles */
+  .section-container {
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
   }
   
-  /* Secondary button variant */
-  .btn-secondary {
-    @apply bg-secondary text-secondary-foreground border border-border px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:bg-secondary/80 hover:border-primary/50;
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
   
-  /* Project card */
-  .project-card {
-    @apply bg-card border border-border rounded-xl p-6 transition-all duration-300 hover:border-primary/50 hover:shadow-[var(--shadow-card)] hover:-translate-y-1;
+  .card-hover {
+    transition: var(--transition-smooth);
   }
   
-  /* Skill badge */
-  .skill-badge {
-    @apply bg-secondary text-secondary-foreground px-4 py-2 rounded-lg text-sm font-medium border border-border transition-all duration-300 hover:border-primary/50 hover:bg-primary/10;
+  .card-hover:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--shadow-primary);
   }
   
-  /* Section heading */
-  .section-heading {
-    @apply text-3xl md:text-4xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+  .glow-button {
+    position: relative;
+    overflow: hidden;
   }
   
-  /* Fade in animation */
-  .fade-in {
-    animation: fadeIn 0.6s ease-out forwards;
+  .glow-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
   }
   
-  .fade-in-delay {
-    animation: fadeIn 0.6s ease-out 0.2s forwards;
-    opacity: 0;
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  .glow-button:hover::before {
+    left: 100%;
   }
 }
