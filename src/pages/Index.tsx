@@ -19,14 +19,7 @@ const Portfolio = () => {
         <Contact />
       </main>
       
-      {/* Footer */}
-      <footer className="py-8 border-t border-primary/20 bg-card/50">
-        <div className="section-container text-center">
-          <p className="text-muted-foreground">
-            © 2024 Abdul Rehman Afzal. Built with React, TypeScript, and Tailwind CSS.
-          </p>
-        </div>
-      </footer>
+      
     </div>
   );
 };
