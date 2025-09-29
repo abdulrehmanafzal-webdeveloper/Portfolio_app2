@@ -11,7 +11,7 @@ import {
 // import capture1,capture2,capture3 from assests folder
 import notes from "../assets/capture1.jpg";
 import news from "../assets/capture2.jpg";
-import shopease from "../assets/capture1.jpg";
+import shopease from "../assets/capture3.jpg";
 
 const Projects = () => {
   const projects = [
