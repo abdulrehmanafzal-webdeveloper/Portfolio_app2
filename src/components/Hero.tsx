@@ -75,25 +75,25 @@ const Hero = () => {
 
             {/* Action Buttons */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8, duration: 0.6 }}
-              className="flex flex-wrap gap-4 pt-4 justify-center md:justify-start"
-            >
-              <Button
-                onClick={scrollToProjects}
-                className="bg-gradient-primary text-primary-foreground hover:bg-gradient-primary/90 glow-button px-6 sm:px-8 py-2 sm:py-3 text-base sm:text-lg font-semibold"
-              >
-                View My Work
-              </Button>
-              <Button
-                variant="outline"
-                onClick={scrollToContact}
-                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-6 sm:px-8 py-2 sm:py-3 text-base sm:text-lg"
-              >
-                Hire Me
-              </Button>
-            </motion.div>
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.8, duration: 0.6 }}
+  className="flex flex-wrap gap-4 pt-4 justify-center md:justify-start"
+>
+  <Button
+    onClick={scrollToProjects}
+    className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white hover:from-blue-700 hover:to-indigo-800 shadow-lg hover:shadow-blue-500/50 transform hover:scale-105 transition-all duration-300 px-6 sm:px-8 py-2 sm:py-3 text-base sm:text-lg font-semibold rounded-lg focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
+  >
+    View My Work
+  </Button>
+  <Button
+    variant="outline"
+    onClick={scrollToContact}
+    className="bg-transparent backdrop-blur-sm border-2 border-indigo-500 text-indigo-500 hover:bg-indigo-500/10 hover:text-indigo-600 hover:border-indigo-600 shadow-md hover:shadow-indigo-500/30 transform hover:scale-105 transition-all duration-300 px-6 sm:px-8 py-2 sm:py-3 text-base sm:text-lg font-semibold rounded-lg focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2"
+  >
+    Hire Me
+  </Button>
+</motion.div>
 
             {/* Social Links */}
             <motion.div

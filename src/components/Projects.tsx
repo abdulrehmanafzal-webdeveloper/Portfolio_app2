@@ -19,7 +19,7 @@ const Projects = () => {
       title: "ShopEase E-commerce",
       description:
         "Full-stack e-commerce platform built with FastAPI and React, featuring user authentication, product management, shopping cart, and secure payment processing.",
-      tech: ["FastAPI", "React", "MongoDB", "JWT", "Stripe"],
+      tech: ["FastAPI", "React", "MongoDB", "JWT"],
       demo: "https://shopease-e-commerce.vercel.app/",
       github:
         "https://github.com/abdulrehmanafzal-webdeveloper/Shopease-e-commerce",
