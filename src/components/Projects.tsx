@@ -20,7 +20,7 @@ const Projects = () => {
       description:
         "Full-stack e-commerce platform built with FastAPI and React, featuring user authentication, product management, shopping cart, and secure payment processing.",
       tech: ["FastAPI", "React", "MongoDB", "JWT"],
-      demo: "https://shopease-e-commerce.vercel.app/",
+      demo: "https://www.linkedin.com/feed/update/urn:li:activity:7366147776260292608/",
       github:
         "https://github.com/abdulrehmanafzal-webdeveloper/Shopease-e-commerce",
 
@@ -119,10 +119,6 @@ const Projects = () => {
                       backgroundPosition: "center",
                     }}
                   >
-                    {/* Fallback if image doesn't load */}
-                    <span className="text-muted-foreground text-sm">
-                      Project Screenshot
-                    </span>
                   </div>
                 </div>
 
